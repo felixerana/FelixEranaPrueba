@@ -2,7 +2,7 @@ package com.felixerana.phoneFelix.model;
 
 public class Phone {
 
-	private Long idPhone;
+	private int idPhone;
 	
 	private String brand;
 	
@@ -22,11 +22,11 @@ public class Phone {
 		super();
 	}
 
-	public Phone(Long idPhone, String brand, String name, String color, String description, String urlImg,
+	public Phone(int i, String brand, String name, String color, String description, String urlImg,
 			String price) {
 		
 		super();
-		this.idPhone = idPhone;
+		this.idPhone = i;
 		this.brand = brand;
 		this.name = name;
 		this.color = color;
@@ -37,11 +37,11 @@ public class Phone {
 	
 	//getters and setters
 
-	public Long getIdPhone() {
+	public int getIdPhone() {
 		return idPhone;
 	}
 
-	public void setIdPhone(Long idPhone) {
+	public void setIdPhone(int idPhone) {
 		this.idPhone = idPhone;
 	}
 
@@ -92,6 +92,7 @@ public class Phone {
 	public void setPrice(String price) {
 		this.price = price;
 	}
+
 	
 	//HashCode and Equals
 
@@ -99,7 +100,7 @@ public class Phone {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idPhone == null) ? 0 : idPhone.hashCode());
+		result = prime * result + idPhone;
 		return result;
 	}
 
@@ -112,13 +113,10 @@ public class Phone {
 		if (getClass() != obj.getClass())
 			return false;
 		Phone other = (Phone) obj;
-		if (idPhone == null) {
-			if (other.idPhone != null)
-				return false;
-		} else if (!idPhone.equals(other.idPhone))
+		if (idPhone != other.idPhone)
 			return false;
 		return true;
-	}	
+	}
 	
 	
 }
