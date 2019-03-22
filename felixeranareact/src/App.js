@@ -1,28 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {connect} from 'react-redux';
+import {mapStateToProps, getPhones} from './Redux';
+import PhoneListContainer from './components/PhoneListContainer';
 
 class App extends Component {
+  componentDidMount(){
+    this.props.getPhones();
+  }
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    const {loading, data, error } = this.props;
+      if (loading) {
+        return <p>Loading</p>;//Ruedita giragira.
+      } else if (error !== null) {
+        return <p>Error</p>;
+      } else {
+        return <PhoneListContainer phones = {data} />;
+      }
   }
 }
 
-export default App;
+export default connect(mapStateToProps, {getPhones}) (App);
