@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
+import {Link} from 'react-router-dom';
 
 class PhoneCard extends Component{
     render(){
         const phone = this.props.phone;
         return(
             <Card>
-                <Card.Img variant="top" src="{phone.urlImg}" />
+                <Card.Img className="img-fluid" id="imgCard" variant="top" src={phone.urlImg} title={phone.brand}/>
                 <Card.Body>
-                <Card.Title>{phone.brand}</Card.Title>
+                <Card.Title>{phone.brand}-{phone.name}</Card.Title>
                 <Card.Text>
                     {phone.description}
                 </Card.Text>
                 </Card.Body>
                 <Card.Footer>
-                <small className="text-muted">Last updated 3 mins ago</small>
+                    <Link className="btn btn-primary" to={`/phonedetail/${phone.idPhone}`}>More Info</Link>
                 </Card.Footer>
             </Card>
         );

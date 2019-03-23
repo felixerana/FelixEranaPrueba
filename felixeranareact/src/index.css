@@ -12,3 +12,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+h1{
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.container {
+  margin-bottom: 75px;
+  
+}
+
+#imgCard{
+  width: auto;
+  height: 200px;
+}

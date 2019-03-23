@@ -3,6 +3,9 @@ import './App.css';
 import {connect} from 'react-redux';
 import {mapStateToProps, getPhones} from './Redux';
 import PhoneListContainer from './components/PhoneListContainer';
+import Spinner from 'react-bootstrap/Spinner';
+import {Route} from 'react-router-dom';
+import PhoneDetailComponent from './components/PhoneDetailComponent';
 
 class App extends Component {
   componentDidMount(){
@@ -11,11 +14,17 @@ class App extends Component {
   render() {
     const {loading, data, error } = this.props;
       if (loading) {
-        return <p>Loading</p>;//Ruedita giragira.
+        return <Spinner animation="border" role="status">
+                  <span className="sr-only">Loading...</span>
+                </Spinner>;
       } else if (error !== null) {
         return <p>Error</p>;
       } else {
-        return <PhoneListContainer phones = {data} />;
+        return (<>
+                  <Route exact path="/" component={PhoneListContainer }/>
+                  <Route path="/phonedetail/:id" component={PhoneDetailComponent} />
+                </>
+        );
       }
   }
 }
