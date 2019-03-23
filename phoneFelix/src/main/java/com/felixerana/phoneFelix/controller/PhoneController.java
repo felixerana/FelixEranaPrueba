@@ -24,13 +24,14 @@ public class PhoneController {
 	Phone phone4 = new Phone(4 ,"Iphone","8","Space Gray","This is a wonderful smartphone that will help you through the day","https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone8/plus/iphone8-plus-gold-select-2018?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1550795417455","699€");
 		
 	@GetMapping("/phones") 
-	public ResponseEntity<List<Phone>> getPhones() {
+	public ResponseEntity<List<Phone>> getPhones() throws InterruptedException {
 		List<Phone> phoneList = new ArrayList<Phone>();
 		phoneList.add(phone0);
 		phoneList.add(phone1);		
 		phoneList.add(phone2);
 		phoneList.add(phone3);
 		phoneList.add(phone4);
+		Thread.sleep(2000);
 		return ResponseEntity.ok(phoneList);
 	}
 	
