@@ -5,10 +5,25 @@ import PhoneCard from './PhoneCard';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
+import {PacmanLoader} from 'react-spinners';
 
 class PhoneListContainer extends Component{
     render(){
         const phones = this.props.data;
+        const loading = this.props.loading;
+        var content = <PacmanLoader
+        sizeUnit={"px"}
+        size={100}
+        color={'#36D7B7'}
+      />;
+
+        if(!loading){
+            content = <CardDeck>
+                        {phones.map(phone => (
+                            <PhoneCard key={phone.idPhone} phone = {phone}/>
+                        ))}
+                    </CardDeck>
+        }
         return(
             <React.Fragment>
                 <Jumbotron fluid>
@@ -21,11 +36,7 @@ class PhoneListContainer extends Component{
                     </Container>
                 </Jumbotron>
                 <Container>
-                    <CardDeck>
-                        {phones.map(phone => (
-                            <PhoneCard key={phone.idPhone} phone = {phone}/>
-                        ))}
-                    </CardDeck>
+                    {content}
                 </Container>
             </React.Fragment>
         );
