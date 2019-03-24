@@ -6,16 +6,19 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import {PacmanLoader} from 'react-spinners';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Alert from 'react-bootstrap/Alert';
 
 class PhoneListContainer extends Component{
     render(){
         const phones = this.props.data;
-        const loading = this.props.loading;
-        var content = <PacmanLoader
+        const {loading, error} = this.props;
+        var content = <Row><Col md={{ span: 6, offset: 3 }}><PacmanLoader
                     sizeUnit={"px"}
                     size={100}
                     color={'#36D7B7'}
-                />;
+                /></Col></Row>;
 
         if(!loading){
             content = <CardDeck>
@@ -23,6 +26,16 @@ class PhoneListContainer extends Component{
                             <PhoneCard key={phone.idPhone} phone = {phone}/>
                         ))}
                     </CardDeck>
+        }
+        if(error){
+            content = <Alert variant="danger">
+            <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+            <p>
+              Change this and that and try again. Duis mollis, est non commodo luctus,
+              nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis
+              consectetur purus sit amet fermentum.
+            </p>
+          </Alert>
         }
         return(
             <React.Fragment>

@@ -6,7 +6,7 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import Alert from 'react-bootstrap/Alert';
 
 class PhoneDetailComponent extends Component{
     render(){
@@ -41,7 +41,23 @@ class PhoneDetailComponent extends Component{
                 </Container>
             );
         }
-        return(<p>Error</p>)
+        return(
+            <Container>
+            <Alert variant="danger">
+            <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+            <p>
+              This device doesn´t exist. Duis mollis, est non commodo luctus,
+              nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis
+              consectetur purus sit amet fermentum.
+            </p>
+            <div className="d-flex justify-content-end">
+            <Link className="btn btn-outline-secondary" to="/">
+              Take me back!
+            </Link>
+          </div>
+          </Alert>
+          </Container>
+        )
     }
 }
 

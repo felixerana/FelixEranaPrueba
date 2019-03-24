@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types'
 
 class PhoneCard extends Component{
     render(){
@@ -21,5 +22,7 @@ class PhoneCard extends Component{
         );
     }
 }
+
+PhoneCard.propTypes = {phone : PropTypes.object.isRequired};
 
 export default PhoneCard;
