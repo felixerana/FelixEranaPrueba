@@ -12,10 +12,10 @@ class PhoneListContainer extends Component{
         const phones = this.props.data;
         const loading = this.props.loading;
         var content = <PacmanLoader
-        sizeUnit={"px"}
-        size={100}
-        color={'#36D7B7'}
-      />;
+                    sizeUnit={"px"}
+                    size={100}
+                    color={'#36D7B7'}
+                />;
 
         if(!loading){
             content = <CardDeck>
