@@ -41,7 +41,5 @@ npm start
 
 ## Autores ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
 * **Félix Eraña García** - *Trabajo Inicial* - [felixerana](https://github.com/villanuevand)
  
