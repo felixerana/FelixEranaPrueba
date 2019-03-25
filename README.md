@@ -18,7 +18,7 @@ mvn spring-boot:run
 
 _Si no, arrancarlo con el jar generado:_
 ```
-java -jar PruebaFelixErana.jar
+java -jar phoneFelix-0.0.1-SNAPSHOT.jar
 ```
 _Primero para la instalacion del cliente, ejecuta el siguiente comando en la consola de bash en la carpeta del cliente_
 ```
