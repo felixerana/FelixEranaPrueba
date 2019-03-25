@@ -10,7 +10,7 @@ class Error404 extends Component{
         return(
             <Container>
                 <Alert variant="danger">
-                    <Alert.Heading>Hey, nice to see you but not here</Alert.Heading>
+                    <Alert.Heading>ERROR 404 - Hey, nice to see you but not here</Alert.Heading>
                     <p>
                         Aww yeah, you successfully read this important alert message. This is not the webpage you are looking for, please go back, take a few steps back and rethink what you have done.
                     </p>

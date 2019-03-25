@@ -3,7 +3,7 @@ import './App.css';
 import {connect} from 'react-redux';
 import {mapStateToProps, getPhones} from './Redux';
 import PhoneListContainer from './components/PhoneListContainer';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import PhoneDetailComponent from './components/PhoneDetailComponent';
 import Error404 from './components/Error404';
 
@@ -12,11 +12,11 @@ class App extends Component {
     this.props.getPhones();
   }
   render() {
-        return (<>
+        return (<Switch>
                   <Route exact path="/" component={PhoneListContainer }/>
                   <Route path="/phonedetail/:id" component={PhoneDetailComponent} />
-                  <Route path='*' exact={true} component={Error404} />
-                </>
+                  <Route component={Error404} />
+                </Switch>
         );
       }
 }
