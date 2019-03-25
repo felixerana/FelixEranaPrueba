@@ -5,7 +5,7 @@ import {mapStateToProps, getPhones} from './Redux';
 import PhoneListContainer from './components/PhoneListContainer';
 import {Route} from 'react-router-dom';
 import PhoneDetailComponent from './components/PhoneDetailComponent';
-import {Error404} from './components/Error404';
+import Error404 from './components/Error404';
 
 class App extends Component {
   componentDidMount(){
@@ -15,7 +15,7 @@ class App extends Component {
         return (<>
                   <Route exact path="/" component={PhoneListContainer }/>
                   <Route path="/phonedetail/:id" component={PhoneDetailComponent} />
-                  <Route component={Error404} />
+                  <Route path='*' exact={true} component={Error404} />
                 </>
         );
       }
